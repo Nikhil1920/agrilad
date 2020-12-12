@@ -17,11 +17,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { WeatherWidgetMainComponent } from './Components/weather-widget-main/weather-widget-main.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { AlertComponent } from './_components';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavBarComponent,
+    AlertComponent,
     LoginPageComponent,
     WeatherWidgetMainComponent
   ],
@@ -43,7 +45,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
