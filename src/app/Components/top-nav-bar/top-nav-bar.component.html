@@ -1,8 +1,9 @@
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark cyan" [containerInside]="false" *ngIf="user">
 
     <!-- Navbar brand -->
-    <mdb-navbar-brand><a class="navbar-brand" href="#">
+    <mdb-navbar-brand><a class="navbar-brand" routerLink="/" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
             <h1>Agrilad</h1>
         </a></mdb-navbar-brand>
 
@@ -30,7 +31,7 @@
                 </a>
                 <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                     <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()">Log out</a>
                 </div>
             </li>
 

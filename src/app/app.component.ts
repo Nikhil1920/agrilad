@@ -10,6 +10,7 @@ import { User } from './_models';
 })
 export class AppComponent {
   user: User;
+  title: any;
 
   constructor(private accountService: AccountService) {
     this.accountService.user.subscribe(x => this.user = x);

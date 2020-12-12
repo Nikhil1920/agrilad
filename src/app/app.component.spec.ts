@@ -1,11 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { WeatherWidgetMainComponent } from './Components/weather-widget-main/weather-widget-main.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, WeatherWidgetMainComponent
       ],
     }).compileComponents();
   }));

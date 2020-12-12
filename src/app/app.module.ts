@@ -18,6 +18,7 @@ import { WeatherWidgetMainComponent } from './Components/weather-widget-main/wea
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertComponent } from './_components';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AlertComponent } from './_components';
     TopNavBarComponent,
     AlertComponent,
     LoginPageComponent,
-    WeatherWidgetMainComponent
+    WeatherWidgetMainComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
