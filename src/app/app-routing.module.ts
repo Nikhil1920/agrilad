@@ -1,26 +1,18 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoginPageComponent } from './Components/login-page/login-page.component';
-import { TopNavBarComponent } from './Components/top-nav-bar/top-nav-bar.component';
-import { WeatherWidgetMainComponent } from './Components/weather-widget-main/weather-widget-main.component';
+import { Routes, RouterModule } from '@angular/router';
 
+import { HomeComponent } from './home';
+import { AuthGuard } from './_helpers';
+
+const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AppComponent
-  },
-  {
-    path: 'login',
-    component: LoginPageComponent
-  },
-  {
-    path: 'home',
-    component: WeatherWidgetMainComponent
-  },
-];
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'account', loadChildren: accountModule },
 
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

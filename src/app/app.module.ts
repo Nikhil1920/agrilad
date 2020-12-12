@@ -15,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginPageComponent } from './Components/login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { WeatherWidgetMainComponent } from './Components/weather-widget-main/weather-widget-main.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
 @NgModule({
   declarations: [
@@ -28,16 +30,20 @@ import { WeatherWidgetMainComponent } from './Components/weather-widget-main/wea
     BrowserAnimationsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatCardModule,
-    MatInputModule,
-    AppRoutingModule
+    MatInputModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
