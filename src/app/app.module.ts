@@ -14,13 +14,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { LoginPageComponent } from './Components/login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { WeatherWidgetMainComponent } from './Components/weather-widget-main/weather-widget-main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavBarComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    WeatherWidgetMainComponent
   ],
   imports: [
     BrowserModule,
