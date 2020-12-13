@@ -1,0 +1,25 @@
+image: node:12.17.0
+
+workflow:
+  rules:
+    - if: "$CI_COMMIT_BRANCH"
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - rm ./package-lock.json
+  - npm install
+
+pages:
+  stage: deploy
+  script:
+    - ng build --prod --output-path public
+    - cd public
+    - cp index.html 404.html
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
