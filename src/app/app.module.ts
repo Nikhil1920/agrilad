@@ -19,6 +19,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertComponent } from './_components';
 import { HomeComponent } from './Components/home/home.component';
+import { CosttrackerComponent } from './Components/costtracker/costtracker.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HomeComponent } from './Components/home/home.component';
     LoginPageComponent,
     WeatherWidgetMainComponent,
     HomeComponent,
+    CosttrackerComponent,
   ],
   imports: [
     BrowserModule,
